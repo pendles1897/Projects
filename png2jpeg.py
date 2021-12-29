@@ -5,7 +5,7 @@ os.chdir('/Users/eugependleton/Scripts')
 oldImage = ''
 newImage = ''
 for files in os.getcwd():
-    if files.endswith() == '.png' or files.endswith() == '.PNG':
+    if files.endswith('.png') or files.endswith('.png'):
         newImage = files
         oldImage = files
     else:
