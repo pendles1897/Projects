@@ -2,29 +2,20 @@ import os
 from PIL import Image
 
 os.chdir('/Users/eugependleton/Scripts')
-path = os.getcwd()
-ls = []
-changes = 0
-print("PNG file must also be in the 'Scripts' directory.")
-
-# Scan for files and add to array
-for root, dirs, files in os.walk(path):
-    for name in files:
-        if name.endswith(".png"):
-            a = os.path.join(root,name)
-            ls.append(a)
-        else:
-            pass
-
-# Convert to JPEG and remove PNG
-for image in ls:
-    if image.endswith(".png"):
-        im = Image.open(image)
-        target_name = image[:-4] + ".jpeg"
-        rgb_im = im.convert('RGB')
-        rgb_im.save(target_name)
-        changes+=1
-        os.remove(image)
+oldImage = ''
+newImage = ''
+for files in os.getcwd():
+    if files.endswith() == '.png' or files.endswith() == '.PNG':
+        newImage = files
+        oldImage = files
     else:
         pass
-print("Process complete. {} files converted to JPEG.".format(changes))
+
+# Convert to JPEG and remove PNG
+im = Image.open(newImage)
+target_name = newImage[:-4] + ".jpeg"
+rgb_im = im.convert('RGB')
+rgb_im.save(target_name)
+os.remove(oldImage)
+
+print("Process complete.")
