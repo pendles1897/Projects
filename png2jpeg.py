@@ -1,21 +1,19 @@
 import os
 from PIL import Image
 
-os.chdir('/Users/eugependleton/Scripts')
-oldImage = ''
-newImage = ''
-for files in os.getcwd():
-    if files.endswith('.png') or files.endswith('.png'):
-        newImage = files
-        oldImage = files
-    else:
-        pass
+os.chdir('/Users/eugependleton/Scripts/Conversion Station')
+imageFile = ''
+for files in os.listdir():
+    imageFile = files
+
+imagePath = os.getcwd() + '/' + imageFile
+oldimagePath = imagePath
 
 # Convert to JPEG and remove PNG
-im = Image.open(newImage)
-target_name = newImage[:-4] + ".jpeg"
+im = Image.open(imagePath)
+target_name = imagePath[:-4] + ".jpeg"
 rgb_im = im.convert('RGB')
 rgb_im.save(target_name)
-os.remove(oldImage)
+os.remove(oldimagePath)
 
 print("Process complete.")
